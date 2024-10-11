@@ -9,7 +9,8 @@ int main() {
         cout << "0. Ejercicio 1" << endl;
         cout << "1. Ejercicio 2" << endl;
         cout << "2. Ejercicio 3" << endl;
-        cout << "3. Salir" << endl;
+        cout << "3. Ejercicio 4" << endl;
+        cout << "4. Salir" << endl;
         cout << "Eliga una opción: " << endl;
         cin >> op;
         if(op == 0) {
@@ -70,6 +71,40 @@ int main() {
                 cout << hipotenusaC << "|" << ladosAB << endl << "Por lo tanto, el triangulo es rectángulo." << endl;
             }
         } else if(op == 3) {
+            int arreglo[5];
+            int ordenado[5];
+            for (int tamano = 0; tamano < 5; tamano++) {
+                cout << "Ingrese un número: " << endl;
+                cin >> arreglo[tamano];
+            }
+            for (int tamano = 0; tamano < 5; tamano++) {
+                cout << arreglo[tamano] << ", ";
+            }
+            int lugar = 0;
+            int numMax = arreglo[0];
+            int numMin = arreglo[0];
+            for (int posicion = 0; posicion < 5; posicion++) {
+                if(numMax < arreglo[posicion]) {
+                    numMax = arreglo[posicion];
+                }
+            }
+            for (int posicion = 0; posicion < 5; posicion++) {
+                for (int posicion2 = 0; posicion2 < 5; posicion2++) {
+                    if(numMin > arreglo[posicion2]) {
+                        numMin = arreglo[posicion2];
+                        lugar = posicion2;
+                    }
+                }
+                arreglo[lugar] = numMax;
+                ordenado[posicion] = numMin;
+                numMin = numMax;
+            }
+            cout << endl << "***ARREGLO ORDENADO***" << endl;
+            for (int tamano = 0; tamano < 5; tamano++) {
+                cout << ordenado[tamano] << ", ";
+            }
+            cout << endl;
+        } else if(op == 4) {
             cout << "Saliendo del programa..." << endl;
             bandera = false;
         } else {
